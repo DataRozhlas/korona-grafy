@@ -1,38 +1,114 @@
-title: "Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěvníci v převaze"
-perex: "Skoro 140 tisíc lidí přijede do Prahy každý den za prací. Míří hlavně do kancelářských budov a do centra města. S nimi pak dorazí i přes půl milionu návštěvníků. Ukázala to analýza dat o pohybu mobilních telefonů, kterou si nyní město nechává zpracovat."
-coverimg: https://interaktivni.rozhlas.cz/brexit/media/cover.jpg
-coverimg_note: "Foto <a href='https://ctk.cz'>ČTK</a>"
-styles: []
-libraries: [] #jquery, d3, highcharts, datatables
-options: [noheader] #wide, noheader (, nopic)
+title: "Mapa i grafy. Podívejte se, jak koronavirus dobyl svět"
+perex: "Přes 140 tisíc nakažených, přes pět tisíc mrtvých, ale i více jak sedmdesát tisíc zotavených. Koronavirus se už objevil ve více než polovině zemí světa. Prohlédněte si pravidelně aktualizované statistiky epidemie."
+coverimg: https://www.irozhlas.cz/sites/default/files/styles/zpravy_snowfall/public/uploader/2020-03-14t161858z_1_200314-185046_mim.JPG?itok=ORA6brdo
+coverimg_note: "Foto: Reuters"
+styles: ['https://unpkg.com/leaflet@1.6.0/dist/leaflet.css', 'https://data.irozhlas.cz/corona-map/style.css']
+libraries: [highcharts, 'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js', 'https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.min.js', 'https://data.irozhlas.cz/corona-map/dashboard.js', 'https://data.irozhlas.cz/corona-map/pocitadlo-eu.js', 'https://data.irozhlas.cz/corona-map/pocitadlo-log.js'] #jquery, d3, highcharts, datatables
+options: [] #wide, noheader (, nopic)
 ---
-<left>
-	<p>
-	<b>KAREL HYNEK MÁCHA</b>
-	</p><p>
-	Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-	</p>
-</left>
+Více než polovina světových zemí ohlásila své nakažené. Onemocnění má původ v Číně, podle Světové zdravotnické organizace se ale nyní ohnisko přesunulo do Evropy. Nejhůře jsou postižené Itálie a Španělsko.
 
-Během dne se lidé v Praze soustřeďují v okolí administrativních center a obchodů, po poledni se tak nejvíc zahustí okolí Andělu, centrum Prahy (Vodičkova ulice a Petrské náměstí) a Brumlovka nedaleko Budějovické. Na poslední jmenované adrese sídlí řada velkých korporací, mezi nimi i Microsoft nebo ČEZ. Pro srovnání, na zmíněných místech je ve "špičce" okolo šesti stovek osob na jeden hektar, průměr Prahy je 25 obyvatel na [hektar](https://cs.wikipedia.org/wiki/Hektar) (Václavské náměstí má rozlohu asi 4 hektary).
+_Počty nakažených ukazuje následující mapa:_
 
-Naopak v noci se nejvíc lidí se "namačká" ve Vršovicích, jde o 430 osob na hektar.
+<wide>
+<div id="corona_map"></div>
+<script src="https://data.irozhlas.cz/corona-map/script.js"></script>
+</wide>
 
-Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních operátorů zpracoval pražský [Institut plánování a rozvoje](http://www.iprpraha.cz/).
+Nejvíce nakažených na kontinentu hlásí Itálie, o řád menší počty pak evidují Španělsko, Francie a Německo.
 
-<wide><i>Pokud vás zajímá, "kolik" lidí bývá ve dne a v noci ve vaší čtvrti, najděte si ji na mapě, přepněte se na časové řezy, vyberte přepínač hustota osob a potom pohybujte "posuvníkem" nahoře.</i></wide>
+<wide>
+<div id="corona_dboard">
+    <div id="corona_dboard_overview">
+        <h3>Celková čísla</h3>
+        <p>Celkem nakažených: <span id="corona_sum_conf"></span></p>
+        <p>Celkem mrtvých: <span id="corona_sum_deaths"></span></p>
+        <p>Celkem zotavených: <span id="corona_sum_recov"></span></p>
+        <p><span id="corona_stats_updated"></span></p>
+    </div>
+    <div id="corona_dboard_eu"></div>
+    <div id="corona_dboard_world"></div>
+</div>
+</wide>
 
-## Data na prodej
-<right>
-	<p>
-	<b>KAREL HYNEK MÁCHA</b>
-	</p><p>
-	Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-	</p>
-</right>
+Nárůst nakažených ve vybraných evropských státech ilustruje i následující graf nemocných a zemřelých.
 
-I pokud netelefonujeme nebo neposíláme SMS, telefon pravidelně komunikuje s vysílači v síti mobilního operátora. Z dat o síle signálu a použité anténě je možné odvodit, kde se přibližně telefon nachází a jak dlouhou dobu na místě strávil.
+<wide>
 
-Mobilní operátor má ["zákonnou povinnost"](https://www.zakonyprolidi.cz/cs/2005-127/zneni-20160919#p97-3) takové informace uchovávat, a to půl roku do minulosti, přistupovat k nim ale mohou jen bezpečnostní složky, typicky policie nebo rozvědka.
+<div id="corona_eu"></div>
+</wide>
 
-Operátoři ale obdobné informace mohou anonymizovat (tedy "zbavit" identifikace konkrétního uživatele) a agregovat, tedy spojit informace o jednotlivcích do jakýchsi skupin. Výsledná obecná čísla pak přeprodávají dál, například marketingovým firmám či dopravním analytikům. Zpětně z nich nejde dovodit, kde se pohybuje každý jednotlivec, dávají ale určitý přehled o obecném chování obyvatel nějakého místa.
+Pokud ale chceme vědět, jakou dynamiku epidemie má, absolutní čísla v různě velkých státech nám příliš nepomohou. Pokud například srovnáme Francii s Itálií, můžeme dojít k závěru, že v první jmenované zemi se nic tak zásadního neděje.
+Jak ale [vysvětluje John Burn-Murdoch z Financial Times]( https://twitter.com/jburnmurdoch/status/1237748598051409921) , nástup epidemie není lineární, ale spíše logaritmický. Jednoduše řečeno, zpočátku nakažení postupně přibývají, jejich počty ale po čase prudce vystřelí.
+
+Proto je lepší srovnávat státy právě prostřednictvím logaritmické stupnice, a navíc až od 100. nakaženého. Že se pak vývoj epidemie ve většině států vyvíjí podobně, naznačuje následující graf.
+
+<wide>
+<div id="corona_log"></div>
+</wide>
+
+Všechny podobné grafy a projekce vývoje ale mají jednu zásadní vadu: spoléhají na čísla o počtech nakažených. Jenže ta mohou pokulhávat za realitou, okolo 80 % nakažených má jen lehké příznaky a řada z nich se vůbec nenechá testovat. A to pak může zamávat s každou statistikou, což vysvětluje vědecký novinář Petr Koubský v podcastu Vinohradská 12.
+
+<div class="b-podcast__player">			
+      <div class="b-audio-player b-audio-player--podcast js-audio" data-audio-name="irozhlas | iROZHLAS podcast | Zprávy z domova | Petr Koubský: Problém je hlavně v testování. Co nám napovídají dostupná data o koronaviru? || 2020-03-13 | iROZHLAS | 9224909">				
+        <div class="js-out">					
+          <audio controls="">						
+            <source src="https://www.irozhlas.cz/sites/default/files/audios/ffb9f69cd3f29653f3ea621eb36e046d.mp3" type="audio/mpeg">Váš prohlížeč nepodporuje přehrávání audia. 					
+          </audio>				
+        </div>				
+        <div class="b-audio-player__controls">					
+          <a href="#" class="b-audio-player__play play-btn">Přehrát 						
+            <span class="icon-svg icon-svg--play ">	
+              <svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">		
+                <use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-play" x="0" y="0" width="100%" height="100%">
+                </use>	
+              </svg>
+            </span>						
+            <span class="icon-svg icon-svg--pause ">	
+              <svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">		
+                <use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-pause" x="0" y="0" width="100%" height="100%">
+                </use>	
+              </svg>
+            </span>
+          </a>					
+          <p class="b-audio-player__time">00:00 / 21:03</p>					
+          <p class="b-audio-player__sound">						
+            <span class="b-audio-player__mute">							
+              <span class="icon-svg icon-svg--speaker ">	
+                <svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">		
+                  <use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-speaker" x="0" y="0" width="100%" height="100%">
+                  </use>	
+                </svg>
+              </span>						
+            </span>						
+            <span class="b-audio-player__sound-bar">							
+              <span class="icon-svg icon-svg--audio-player-dots ">	
+                <svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">		
+                  <use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-audio-player-dots" x="0" y="0" width="100%" height="100%">
+                  </use>	
+                </svg>
+              </span>							
+              <span class="b-audio-player__sound-progress" style="width: 100%;">								
+                <span class="icon-svg icon-svg--audio-player-dots ">	
+                  <svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">		
+                    <use xlink:href="https://www.irozhlas.cz/sites/all/themes/custom/irozhlas/img/bg/icons-svg.svg#icon-audio-player-dots" x="0" y="0" width="100%" height="100%">
+                    </use>	
+                  </svg>
+                </span>							
+              </span>						
+            </span>					
+          </p>					
+          <div class="b-audio-player__bar">						
+            <div class="b-audio-player__progress"></div>					
+          </div>				
+        </div>	
+      </div>		
+    </div>
+	<br>
+
+
+## Aktuální dění okolo koronaviru:
+
+<!--[[ZPRAVY_LIVEREPORT_06646166]]-->
+
+<!-- wa data-asset-id="5e6d181e69ba92.06646166" data-asset-type="livereport" -->
