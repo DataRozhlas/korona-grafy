@@ -109,4 +109,4 @@ Všechny podobné grafy a projekce vývoje ale mají jednu zásadní vadu: spol�
 
 ## Aktuální dění okolo koronaviru:
 
-<!--[[ZPRAVY_LIVEREPORT:60872]]-->
+<!--[[ZPRAVY_LIVEREPORT:61920]]-->
