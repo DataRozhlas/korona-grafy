@@ -1,5 +1,5 @@
 title: "Mapa i grafy. Podívejte se, jak koronavirus dobyl svět"
-perex: "Přes 140 tisíc nakažených, přes pět tisíc mrtvých, ale i více jak sedmdesát tisíc zotavených. Koronavirus se už objevil ve více než polovině zemí světa. Prohlédněte si pravidelně aktualizované statistiky epidemie."
+perex: "Statisíce nakažených, tisíce mrtvých, ale i více než desítky tisíc zotavených. Koronavirus se už objevil ve více než polovině zemí světa. Prohlédněte si pravidelně aktualizované statistiky epidemie."
 coverimg: https://www.irozhlas.cz/sites/default/files/styles/zpravy_snowfall/public/uploader/2020-03-14t161858z_1_200314-185046_mim.JPG?itok=ORA6brdo
 coverimg_note: "Foto: Reuters"
 styles: ['https://unpkg.com/leaflet@1.6.0/dist/leaflet.css', 'https://data.irozhlas.cz/corona-map/style.css']
@@ -8,7 +8,7 @@ options: [] #wide, noheader (, nopic)
 ---
 Více než polovina světových zemí ohlásila své nakažené. Onemocnění má původ v Číně, podle Světové zdravotnické organizace se ale nyní ohnisko přesunulo do Evropy. Nejhůře jsou postižené Itálie a Španělsko.
 
-_Počty nakažených ukazuje následující mapa:_
+_Počty nakažených ukazuje následující mapa (čísla mají zpoždění přibližně 1 den):_
 
 <wide>
 <div id="corona_map"></div>
@@ -109,6 +109,4 @@ Všechny podobné grafy a projekce vývoje ale mají jednu zásadní vadu: spol�
 
 ## Aktuální dění okolo koronaviru:
 
-<!--[[ZPRAVY_LIVEREPORT_06646166]]-->
-
-<!-- wa data-asset-id="5e6d181e69ba92.06646166" data-asset-type="livereport" -->
+<!--[[ZPRAVY_LIVEREPORT:60872]]-->
